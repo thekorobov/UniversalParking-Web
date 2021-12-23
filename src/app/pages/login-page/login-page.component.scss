@@ -1,0 +1,55 @@
+.customBackground{
+    height: 25%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    background-image: url('./pictures/car_login.svg'); 
+}
+
+h1 {
+    font-weight: 300;
+  }
+
+.pacific {
+    background-color: #D3EFFD;
+}
+
+.loginButton {
+    background-color: #A8DADC;
+    border: none;
+    border-radius: 15px;
+    width: 180.23px;
+    height: 57px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  
+  .registerButton {
+    background-color: #FA7881;
+    border: none;
+    border-radius: 15px;
+    width: 180.23px;
+    height: 57px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+  }
+
+  .closeFaTimes {
+    color: black;
+    font-size: 21px;
+  }
+  
+  
+  .closeButtonTimes {
+    background-color: #FFDC97;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

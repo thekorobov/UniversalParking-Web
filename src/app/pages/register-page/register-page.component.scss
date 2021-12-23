@@ -1,0 +1,51 @@
+.customBackground{
+    height: 25%;
+    background-image: url('./pictures/car1.svg'); 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+.block {
+    background-color: #D3EFFD;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.maintFont {
+    margin-top: 20%;
+    margin-bottom: 30%;
+}
+
+input {
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 5%;
+}
+
+.loginButton {
+    background-color: #A8DADC;
+    border: none;
+    border-radius: 15px;
+    width: 180.23px;
+    height: 57px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  
+  .registerButton {
+    background-color: #FA7881;
+    border: none;
+    border-radius: 15px;
+    width: 180.23px;
+    height: 57px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  
+  .margin-bottom-10 {
+      margin-bottom: 10%;
+  }
