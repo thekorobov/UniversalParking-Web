@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-//import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import * as bootstrap from 'bootstrap';
 import { HttpService } from 'src/app/api/http.service';
 import { CommonValidators } from 'src/app/validators/validators';
@@ -14,7 +14,7 @@ import { CommonValidators } from 'src/app/validators/validators';
 })
 export class LoginPageComponent implements OnInit {
 
-    //faTimes = faTimes;
+    faTimes = faTimes;
     form: FormGroup;
     email: FormControl;
     password: FormControl;
@@ -42,7 +42,7 @@ export class LoginPageComponent implements OnInit {
                     if (data['status'] == 200) {
                         var token = data['body']['token']
                         document.cookie = `JWT_token=${token}; Path=/; secure`
-                       // this.router.navigateByUrl('/parking');
+                       this.router.navigateByUrl('/parking');
                     }
                 },
                 (error: any) => {
