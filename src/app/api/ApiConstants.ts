@@ -5,5 +5,7 @@ export enum ApiConstants {
     parking_url = "api/parking/",
     parkingPlace_url = "api/parkingPlace/",
     parkingPlacesByParking_url = "api/parkingPlace/parking/",
-    profile_url = "profile/"
+    profile_url = "profile/",
+    statistics_url = "api/statistics/",
+    admin_url = "api/administrator/"
   }

@@ -8,6 +8,7 @@ import { CookieService } from 'src/app/services/cookie-service';
 import { CommonValidators } from 'src/app/validators/validators';
 import * as bootstrap from 'bootstrap';
 import { ParkingPlace } from 'src/app/Models/parkingPlace';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-parking-view-page',
@@ -33,7 +34,7 @@ export class ParkingViewPageComponent implements OnInit {
     currentParkingPlaceID: number;
 
     constructor(private router: Router, private httpService: HttpService,
-        private route: ActivatedRoute) { }
+        private route: ActivatedRoute, public translate: TranslateService) { }
 
     ngOnInit(): void {
         this.form = new FormGroup({
@@ -103,7 +104,10 @@ export class ParkingViewPageComponent implements OnInit {
     }
     
     onCreateParkingClick() {
-        if (!this.form?.valid) {;
+        if (!this.form?.valid) {
+            this.translate.get('PARKING.NOTIFICATION').subscribe(
+                (res: string) => this.notification = res
+            );
             this.openNotificationModal();
             return; 
         }
@@ -111,11 +115,11 @@ export class ParkingViewPageComponent implements OnInit {
         this.parking.name = this.form.get("ParkingName").value;
         this.parking.address = this.form.get("Address").value;
         this.parking.numberSlots = this.form.get('NumberSlots').value.toString();
-        console.log( this.parking);
 
         this.httpService.createParking(this.token, this.parking).subscribe(
             (data: any) => {
-                if (data.status == 201) {
+                console.log(data.status);
+                if (data.status == 200) {
                     this.router.navigateByUrl(`/parking`)
                 }
             }
@@ -123,7 +127,10 @@ export class ParkingViewPageComponent implements OnInit {
     }
 
     onEditParkingClick() {
-        if (!this.form?.valid) {              
+        if (!this.form?.valid) {           
+            this.translate.get('PARKING.NOTIFICATION').subscribe(
+                (res: string) => this.notification = res
+            );   
             this.openNotificationModal();
             return; 
         }
@@ -142,25 +149,25 @@ export class ParkingViewPageComponent implements OnInit {
 
     onCreateParkingPlaceClick() {
       this.router.navigateByUrl(`parking/${this.parking.parking_id}/parkingPlace/create`);
-  }
+    }
 
-  onEditClick(parkingPlaceID: number) {
-    this.router.navigateByUrl(`parkingPlace/edit/${parkingPlaceID}`);
-  }
+    onEditClick(parkingPlaceID: number) {
+        this.router.navigateByUrl(`parkingPlace/edit/${parkingPlaceID}`);
+    }
 
-onOpenRemoveModal(parkingPlaceID: number) {
-    var removeModal = new bootstrap.Modal(document.getElementById('removeModal'), {
-        keyboard: false
-    });
-    removeModal?.show();
-    this.currentParkingPlaceID = parkingPlaceID;
-}
-
-onRemoveClick() {
-    this.httpService.deleteLocation(this.token, this.currentParkingPlaceID)
-        .subscribe((data: any) => {
-            this.ngOnInit();
+    onOpenRemoveModal(parkingPlaceID: number) {
+        var removeModal = new bootstrap.Modal(document.getElementById('removeParkingPlaceModal'), {
+            keyboard: false
         });
-}
+        removeModal?.show();
+        this.currentParkingPlaceID = parkingPlaceID;
+    }
+
+    onRemoveClick() {
+        this.httpService.deleteParkingPlace(this.token, this.currentParkingPlaceID)
+            .subscribe((data: any) => {
+                this.ngOnInit();
+            });
+    }
 
 }

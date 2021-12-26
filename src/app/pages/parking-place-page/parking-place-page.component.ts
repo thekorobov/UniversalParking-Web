@@ -100,10 +100,10 @@ export class ParkingPlacePageComponent implements OnInit {
       this.parkingPlace.name = this.form.get("ParkingPlaceName").value;
       this.parkingPlace.price = Number(this.form.get("Price").value);     
       this.parkingPlace.state = Boolean(this.form.get('State').value);
-
+      console.log(this.parkingPlace);
       this.httpService.createParkingPlace(this.token, this.parkingPlace).subscribe(
           (data: any) => {
-              if (data.status == 201) {
+              if (data.status == 200) {
                   this.router.navigateByUrl(`/parking/edit/${this.parkingPlace.parking_id}`);
               }
           }
@@ -118,7 +118,6 @@ export class ParkingPlacePageComponent implements OnInit {
       this.parkingPlace.name = this.form.get("ParkingPlaceName").value;
       this.parkingPlace.price = Number(this.form.get("Price").value);     
       this.parkingPlace.state = Boolean(this.form.get('State').value);
-      console.log(this.parkingPlace);
 
       this.httpService.updateParkingPlace(this.token, this.parkingPlace).subscribe(
           (data: any) => {

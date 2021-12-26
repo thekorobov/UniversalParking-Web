@@ -137,10 +137,60 @@ export class HttpService {
         return this.http.put(parkingPlace_url, body, { 'headers': headers, observe: 'response' });
     }
 
-    deleteLocation(token: string, parkingPlaceID: number) {
+    deleteParkingPlace(token: string, parkingPlaceID: number) {
         const headers = { 'Authorization': 'Bearer ' + token, 'content-type': 'application/json' }
         var parkingPlace_url = ApiConstants.main_url.toString() + 
             ApiConstants.parkingPlace_url.toString() + parkingPlaceID.toString() + "/"
         return this.http.delete(parkingPlace_url, { 'headers': headers, observe: 'response' });
+    }
+
+    getParkingStatistics(token: string) {
+        const headers = { 'Authorization': 'Bearer ' + token, 'content-type': 'application/json' }
+        var statistics_url = ApiConstants.main_url.toString() + 
+            ApiConstants.statistics_url.toString();
+        return this.http.get(statistics_url, {'headers': headers, observe: 'response'});
+    }
+
+    getBookingStatisticsByParking(token: string, parkingID: number) {
+        const headers = { 'Authorization': 'Bearer ' + token, 'content-type': 'application/json' }
+        var statistics_url = ApiConstants.main_url.toString() + 
+            ApiConstants.statistics_url.toString() + parkingID.toString() + "/";
+        return this.http.get(statistics_url, {'headers': headers, observe: 'response'});
+    }
+
+    getUsers(token: string, userID: number = null) {
+        const headers = { 'Authorization': 'Bearer ' + token, 'content-type': 'application/json' }
+        var user_url = ApiConstants.main_url.toString() + ApiConstants.admin_url.toString()
+        if (userID != null) {
+            user_url += userID.toString() + "/";
+        }
+        return this.http.get(user_url, { 'headers': headers, observe: 'response' });
+    }
+
+    updateUserProfileByAdmin(token: string, user: User) {
+        const headers = { 'Authorization': 'Bearer ' + token, 'content-type': 'application/json' }
+        var body;
+        if (user.password != null) {
+            body = {
+                email: user.email,
+                name: user.username,
+                password: user.password
+            };
+        } else {
+            body = {
+                email: user.email,
+                name: user.username
+            };
+        }
+        var user_url = ApiConstants.main_url.toString() + ApiConstants.admin_url.toString() +
+            user.user_id.toString() + "/";
+        return this.http.put(user_url, body, { 'headers': headers, observe: 'response' });
+    }
+
+    deleteUser(token: string, userID: number) {
+        const headers = { 'Authorization': 'Bearer ' + token, 'content-type': 'application/json' }
+        var user_url = ApiConstants.main_url.toString() + ApiConstants.admin_url.toString() +
+            userID.toString() + "/";
+        return this.http.delete(user_url, { 'headers': headers, observe: 'response' });
     }
 }

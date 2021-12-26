@@ -1,0 +1,63 @@
+{
+    "HEADER": {
+        "USERS": "Users",
+        "PARKINGS": "Parkings",
+        "STATISTICS": "Statistics",
+        "ACCOUNT": "Account"
+    },
+    "SEARCH": "Search",
+    "BUTTON": {
+        "EDIT": "Edit",
+        "REMOVE": "Remove",
+        "CREATE": "Create",
+        "CHANGE": "Apply changes",
+        "LOGOUT": "Log Out",
+        "YES": "Yes",
+        "NO": "No"
+    },
+    "ACCOUNT": {
+        "TITLE": "Account",
+        "USERNAME": "User Name",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "ROLE": "Role",
+        "REMOVE_TITLE": "Remove User",
+        "REMOVE_BODY": "Are you sure you want to remove this user?",
+        "NOTIFICATION": "You must fill in all the details of the user profile.",
+        "EXSIST": "An account with such data already exists."
+    },
+    "NOTIFICATION": {
+        "TITLE": "Notification"
+    },
+    "PARKING": {
+        "TITLE": "Parking",
+        "NAME": "Parking Name",
+        "ADDRESS": "Address",
+        "PRICE": "Price",
+        "NUMBERSLOTS": "Number slots",
+        "REMOVE_TITLE": "Remove Parking",
+        "REMOVE_BODY": "Are you sure you want to remove this parking?",
+        "NOTIFICATION": "You must fill in all the details of the parking."
+    },
+    "PARKINGPLACE": {
+        "TITLE": "Parking place",
+        "NAME": "Parking Place Name",
+        "PRICE": "Price",
+        "STATE": "State",
+        "REMOVE_TITLE": "Remove Parking Place",
+        "REMOVE_BODY": "Are you sure you want to remove this parking place?",
+        "NOTIFICATION": "You must fill in all the details of the parking place."
+    },
+    "STATE": {
+        "FREE": "Free",
+        "BUSY": "Busy"
+    },
+    "STATISTICS": "Statistics",
+    "ROLE": {
+        "CHOOSE": "Choose role",
+        "ADMIN": "Administrator",
+        "DRIVER": "Driver",
+        "OWNER": "Owner"
+    },
+    "SELECT_PARKING": "Select parking"
+}

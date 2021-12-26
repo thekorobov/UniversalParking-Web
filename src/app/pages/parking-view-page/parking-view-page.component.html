@@ -1,25 +1,25 @@
 <app-header></app-header>
 <div class="row">
-    <p class="title">Title</p>
+    <p class="title">{{ 'PARKING.TITLE' | translate}}</p>
 </div>
 
 <div class="wrapper pb-4">
     <form [formGroup]="form">
         <div class="field">
-            <p>Name</p>
+            <p>{{ 'PARKING.NAME' | translate}}</p>
             <input type="text" formControlName="ParkingName">
         </div>
         <div class="field">
-            <p>Address</p>
+            <p>{{ 'PARKING.ADDRESS' | translate}}</p>
             <textarea rows="5" formControlName="Address"></textarea> 
         </div>
         <div class="field">
-            <p>NumberSlots</p>
+            <p>{{ 'PARKING.NUMBERSLOTS' | translate}}</p>
             <input type="number" formControlName="NumberSlots">
         </div>    
        
-        <button class="apply" *ngIf="isCreateAction"(click)="onCreateParkingClick()">Create</button>
-        <button class="apply" *ngIf="!isCreateAction"(click)="onEditParkingClick()">Change</button>
+        <button class="apply" *ngIf="isCreateAction"(click)="onCreateParkingClick()">{{ 'BUTTON.CREATE' | translate}}</button>
+        <button class="apply" *ngIf="!isCreateAction"(click)="onEditParkingClick()">{{ 'BUTTON.CHANGE' | translate}}</button>
     </form>
 </div>
 
@@ -66,7 +66,7 @@
     <div class="modal-dialog modal-centred modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="notificationModalLongTitle">Title</h5>
+                <h5 class="modal-title" id="notificationModalLongTitle">{{ 'NOTIFICATION.TITLE' | translate}}</h5>
                 <button class="closeButtonTimes" data-bs-dismiss="modal" aria-label="Close">
                   <fa-icon class="closeFaTimes" [icon]="faTimes"></fa-icon> 
                 </button>
@@ -78,19 +78,19 @@
     </div>
 </div>
 
-<!-- Remove Modal -->
-<!-- <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalTitle"
+<!--Remove Modal -->
+ <div class="modal fade" id="removeParkingPlaceModal" tabindex="-1" role="dialog" aria-labelledby="removeParkingPlaceModalTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-centred modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="removeModalLongTitle">{{ 'LOCATION.REMOVE_TITLE' | translate}}</h5>
+                <h5 class="modal-title" id="removeParkingPlaceModalLongTitle">{{ 'PARKINGPLACE.REMOVE_TITLE' | translate}}</h5>
                 <button class="closeButtonTimes" data-bs-dismiss="modal" aria-label="Close">
                     <fa-icon class="closeFaTimes" [icon]="faTimes"></fa-icon>
                 </button>
             </div>
             <div class="modal-body justify-content-center">
-                <p class="resultText">{{ 'LOCATION.REMOVE_BODY' | translate}}</p>
+                <p class="resultText">{{ 'PARKINGPLACE.REMOVE_BODY' | translate}}</p>
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="yesButton" data-bs-dismiss="modal"
                     (click)="onRemoveClick()">{{ 'BUTTON.YES' | translate}}</button>
@@ -99,4 +99,4 @@
             </div>
         </div>
     </div>
-</div> -->
+</div> 
