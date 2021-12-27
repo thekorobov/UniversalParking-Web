@@ -16,7 +16,6 @@ import {
 } from "ng-apexcharts";
 import { CookieService } from 'src/app/services/cookie-service';
 import { ParkingStatistic } from 'src/app/Models/parking-statistic';
-import { BookingStatistic } from 'src/app/Models/booking-statistic';
 
 export type ParkingTopOptions = {
   series: ApexAxisChartSeries;
