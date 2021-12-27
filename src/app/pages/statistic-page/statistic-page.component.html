@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="row">
+    <p class="title">{{ 'STATISTICS' | translate}}</p>
+</div>
+
+<div class="wrapper">
+    <div class="chart-background" *ngIf="currentChart == 'Top'">
+        <apx-chart [series]="parkingTop.series" [chart]="parkingTop.chart" [xaxis]="parkingTop.xaxis"
+            [title]="parkingTop.title" [plotOptions]="parkingTop.plotOptions"
+            [dataLabels]="parkingTop.dataLabels" [yaxis]="parkingTop.yaxis"></apx-chart>
+    </div>
+    <div class="chart-background" *ngIf="currentChart == 'FreePlaces'">
+        <apx-chart [series]="freeParkingPlaceChart.series" [chart]="freeParkingPlaceChart.chart" [xaxis]="freeParkingPlaceChart.xaxis"
+            [title]="freeParkingPlaceChart.title" [plotOptions]="freeParkingPlaceChart.plotOptions"
+            [dataLabels]="freeParkingPlaceChart.dataLabels" [yaxis]="freeParkingPlaceChart.yaxis"></apx-chart>
+    </div>
+</div>
+ <div class="select-block text-center mt-3">
+    <select class="parking-select" (change)="onChange($event)">
+        <option disabled>Select parking</option>
+        <option value="Top">Parking Top</option>
+        <option value="FreePlaces">Free Parking Places</option>
+    </select>
+</div>

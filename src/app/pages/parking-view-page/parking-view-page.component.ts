@@ -57,7 +57,6 @@ export class ParkingViewPageComponent implements OnInit {
                 this.httpService.getParkings(this.token, parkingID).subscribe(
                     (data: any) => {
                         data = data['body'];
-                        console.log(data);
                         var parking = new MyParking();
                         parking.parking_id = data["parkingID"];
                         parking.name = data["name"];

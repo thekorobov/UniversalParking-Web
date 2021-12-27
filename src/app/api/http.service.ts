@@ -82,7 +82,7 @@ export class HttpService {
         const headers = { 'Authorization': 'Bearer ' + token, 'content-type': 'application/json' }
         const body = {
             name: parking.name,
-            addres: parking.address,
+            address: parking.address,
             numberSlots: parking.numberSlots,
         };
         var parking_url = ApiConstants.main_url.toString() + ApiConstants.parking_url.toString() + parking.parking_id.toString() + "/"
@@ -144,10 +144,18 @@ export class HttpService {
         return this.http.delete(parkingPlace_url, { 'headers': headers, observe: 'response' });
     }
 
-    getParkingStatistics(token: string) {
+    getParkingTop(token: string) {
         const headers = { 'Authorization': 'Bearer ' + token, 'content-type': 'application/json' }
         var statistics_url = ApiConstants.main_url.toString() + 
             ApiConstants.statistics_url.toString();
+        return this.http.get(statistics_url, {'headers': headers, observe: 'response'});
+    }
+
+    
+    getFreeParkingPlaceByParking(token: string, parkingID: number) {
+        const headers = { 'Authorization': 'Bearer ' + token, 'content-type': 'application/json' }
+        var statistics_url = ApiConstants.main_url.toString() + 
+            ApiConstants.statistics_url.toString() + parkingID.toString();
         return this.http.get(statistics_url, {'headers': headers, observe: 'response'});
     }
 
